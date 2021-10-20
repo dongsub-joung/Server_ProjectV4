@@ -15,7 +15,7 @@
 
 class main{
 public:
-	static main(arg){}
+	main(){}
 private:
 	enum Main_Selection
 	{
@@ -31,13 +31,13 @@ private:
 
 int main::main()
 {
-	user_join = new Join();
-	user_mode= new UserMode();
+	user_join=  new Join();
+	user_mode=  new UserMode();
 	admin_mode= new AdminModeFunction();
 
-	std::cout << "1. UserSpace Mode" << endl;
-	std::cout << "2. Administrator Mode" << endl;
-	std::cout << "3. Request a Join" << endl;
+	std::cout << "1. UserSpace Mode 	\n";
+	std::cout << "2. Administrator Mode	\n";
+	std::cout << "3. Request a Join		\n"<< std::endl;
 
 	int select_mode;
 	cin >> select_mode;
@@ -70,4 +70,4 @@ int main::main()
 
 
 // Init
-main::main();
+this::main();
