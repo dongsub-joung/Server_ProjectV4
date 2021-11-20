@@ -43,23 +43,19 @@ int main::main()
 	cin >> select_mode;
 	do
 	{
-		switch (select_mode)
-		{
-		case Select_UserMode:
+		if(select_mode == Select_UserMode):
 			user_mode.ShowServerCapacity();
 			user_mode.init_UserMode();
 			break;
-
-		case Select_AdminMode:
+		else if(select_mode == Select_AdminMode):
+// 		@todo Overriding Function "ShowServerCapacity" from UserMode.cpp to AdminModeFunction.cpp 
 			user_mode.ShowServerCapacity();
 			admin_mode.InitAdminMode();
 			break;
-
-		case Select_JoinMode:
+		else if(select_mode == Select_JoinMode):
 			user_join.InitJoin();
 			break;
-
-		default:
+		else:
 			cout << "Out of Range\n" << endl;
 			continue;
 		}
