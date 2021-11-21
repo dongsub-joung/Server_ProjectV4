@@ -17,6 +17,12 @@ class main{
 public:
 	main(){}
 private:
+// 	pseudo code // Diretly
+// 	int[3] Main_Selection= [1,2,3];
+// 	int* Select_UserMode= &Main_Selection;
+// 	int* Select_AdminMode= &Main_Selection[1];
+// 	int* Select_JoinMode= &Main_Selection[2];
+	
 	enum Main_Selection
 	{
 		Select_UserMode  = 1,
