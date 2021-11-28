@@ -31,7 +31,7 @@ private:
 	void ShowUserInfo();
 	void Sharding();
 	void WaitingUserInfo();
-	bool switchingCase(int);
+	bool switchingCase(int, int);
 
 //------ etc function ----------
 	void PrintMenu();

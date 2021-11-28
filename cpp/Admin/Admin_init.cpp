@@ -17,7 +17,7 @@
 
 void AdminModeFunction::InitAdminMode()
 {
-	int selected_admin_opt;	///< switch index value
+	int select;	///< switch index value
 
 	do
 	{
@@ -27,27 +27,28 @@ void AdminModeFunction::InitAdminMode()
 	do
 	{
 		PrintMenu();
-		cin >> selected_admin_opt;
+		cin >> select;
 
 // @Todo Overwriting from user_mode to this.
-		if(switchingCase(OPT_ChangeAdminCode)){
+		if(switchingCase(select, OPT_ChangeAdminCode)){
 			ChangeAdminCode();
-		} else if(switchingCase(OPT_ShowJoinedUserInfo)){
+			break;
+		} else if(switchingCase(select, OPT_ShowJoinedUserInfo)){
 			ShowUserInfo();
 			break;
-		} else if(switchingCase(OPT_Sharding)){
+		} else if(switchingCase(select, OPT_Sharding)){
 			Sharding();
 			break;
-		} else if(switchingCase(OPT_WaitingUserInfo)){
+		} else if(switchingCase(select, OPT_WaitingUserInfo)){
 			WaitingUserInfo();
 			break;
-		} else if(switchingCase(OPT_FileUpload)){
+		} else if(switchingCase(select, OPT_FileUpload)){
 			user_mode.FileUpload();
 			break;
-		} else if(switchingCase(OPT_FileDelete)){
+		} else if(switchingCase(select, OPT_FileDelete)){
 			user_mode.FileDelete();
 			break;
-		} else if(switchingCase(OPT_FileDownload)){
+		} else if(switchingCase(select, OPT_FileDownload)){
 			ShowUserInfo();
 			user_mode.DeleteFile();
 			break;
@@ -103,7 +104,8 @@ void AdminModeFunction::PrintMenu()
 	cout << "7. Download \n" << endl;
 }
 
-bool AdminModeFunction::switchingCase(int selected)
+bool AdminModeFunction::switchingCase(int selected, int case)
 {
-
+	if(select == case) return 1;
+	else return 0;
 }
