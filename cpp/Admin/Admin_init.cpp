@@ -17,54 +17,45 @@
 
 void AdminModeFunction::InitAdminMode()
 {
+	int selected_admin_opt;	///< switch index value
 
 	do
 	{
 		AdminLogin();
 	} while (admin_login);
 	
-	int selected_admin_opt;	///< switch index value
 	do
 	{
 		PrintMenu();
 		cin >> selected_admin_opt;
 
-		switch (selected_admin_opt)
-		{
-		case OPT_ChangeAdminCode:
+// @Todo Overwriting from user_mode to this.
+		if(switchingCase(OPT_ChangeAdminCode)){
 			ChangeAdminCode();
-			break;
-
-		case OPT_ShowJoinedUserInfo:
+		} else if(switchingCase(OPT_ShowJoinedUserInfo)){
 			ShowUserInfo();
 			break;
-
-		case OPT_Sharding:
+		} else if(switchingCase(OPT_Sharding)){
 			Sharding();
 			break;
-
-		case OPT_WaitingUserInfo:
+		} else if(switchingCase(OPT_WaitingUserInfo)){
 			WaitingUserInfo();
 			break;
-
-		case OPT_FileUpload:
+		} else if(switchingCase(OPT_FileUpload)){
 			user_mode.FileUpload();
 			break;
-
-		case OPT_FileDelete:
+		} else if(switchingCase(OPT_FileDelete)){
 			user_mode.FileDelete();
 			break;
-
-		case OPT_FileDownload:
+		} else if(switchingCase(OPT_FileDownload)){
+			ShowUserInfo();
 			user_mode.DeleteFile();
 			break;
-
-		default:
-			cout << "Out of Range;" << endl;
+		} else {
+			cout << "Out of Range \n" << endl;
 			continue;
 		}
 	} while (true);
-
 }
 
 void AdminModeFunction::AdminLogin()
@@ -110,4 +101,9 @@ void AdminModeFunction::PrintMenu()
 	cout << "5. Upload \n"
 	cout << "6. Delete \n"
 	cout << "7. Download \n" << endl;
+}
+
+bool AdminModeFunction::switchingCase(int selected)
+{
+
 }
