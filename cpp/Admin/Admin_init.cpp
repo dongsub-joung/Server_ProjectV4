@@ -33,26 +33,33 @@ void AdminModeFunction::InitAdminMode()
 		if(switchingCase(select, OPT_ChangeAdminCode)){
 			ChangeAdminCode();
 			break;
-		} else if(switchingCase(select, OPT_ShowJoinedUserInfo)){
+		} 
+		if(switchingCase(select, OPT_ShowJoinedUserInfo)){
 			ShowUserInfo();
 			break;
-		} else if(switchingCase(select, OPT_Sharding)){
+		} 
+		if(switchingCase(select, OPT_Sharding)){
 			Sharding();
 			break;
-		} else if(switchingCase(select, OPT_WaitingUserInfo)){
+		} 
+		if(switchingCase(select, OPT_WaitingUserInfo)){
 			WaitingUserInfo();
 			break;
-		} else if(switchingCase(select, OPT_FileUpload)){
+		} 
+		if(switchingCase(select, OPT_FileUpload)){
 			user_mode.FileUpload();
 			break;
-		} else if(switchingCase(select, OPT_FileDelete)){
+		} 
+		if(switchingCase(select, OPT_FileDelete)){
 			user_mode.FileDelete();
 			break;
-		} else if(switchingCase(select, OPT_FileDownload)){
+		}
+		if(switchingCase(select, OPT_FileDownload)){
 			ShowUserInfo();
 			user_mode.DeleteFile();
 			break;
-		} else {
+		} 
+		if(select>OPT_FileDownload && select < OPT_ChangeAdminCode) {
 			cout << "Out of Range \n" << endl;
 			continue;
 		}
