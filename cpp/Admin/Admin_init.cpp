@@ -1,7 +1,7 @@
 /**
 *@brief			Init AdminMode
 *@details		
-*			UI and Show menu
+*			UI and Show menu(Top component of fame)
 *				- Change Admin code
 *				- Show User Infomation
 *				- Sharding
@@ -11,9 +11,52 @@
 *@version		0.0.4
 */
 
-#include "Admin_init.h"
-#include "FileClass.h"
-#include "UserMode.h"
+#pragma once
+
+#include "Admin_init.cpp"
+#include "Admin_Class.cpp"
+#include "FileClass.cpp"
+#include "UserMode.cpp"
+
+class AdminModeFunction
+{
+public:
+	void InitAdminMode();
+
+private:
+	bool admin_login{ true };
+	AdminClass admin_class = AdminClass();
+	AdminClass& Admin_ = admin_class;
+	UserMode user_mode = UserMode();
+
+	enum selecteOPT
+	{
+		OPT_ChangeAdminCode = 1,
+		OPT_ShowJoinedUserInfo = 2,
+		OPT_Sharding = 3,
+		OPT_WaitingUserInfo = 4,
+		OPT_FileUpload = 5,
+		OPT_FileDelete = 6,
+		OPT_FileDownload = 7
+	};
+
+// ------ function ----------
+	void AdminLogin();
+	void CheckCode(string inputed);
+	void ChangeAdminCode();
+	void ShowUserInfo();
+	void Sharding();
+	void WaitingUserInfo();
+	bool switchingCase(int, int);
+
+	void fileUploadMode();
+	void fileDeleteMode();
+	void DeleteFile();
+
+//------ etc function ----------
+	void PrintMenu();
+};
+
 
 void AdminModeFunction::InitAdminMode()
 {
@@ -47,16 +90,16 @@ void AdminModeFunction::InitAdminMode()
 			break;
 		} 
 		if(switchingCase(select, OPT_FileUpload)){
-			user_mode.FileUpload();
+			FileUploadMode();
 			break;
 		} 
 		if(switchingCase(select, OPT_FileDelete)){
-			user_mode.FileDelete();
+			FileDeleteMode();
 			break;
 		}
 		if(switchingCase(select, OPT_FileDownload)){
 			ShowUserInfo();
-			user_mode.DeleteFile();
+			FileDownload();
 			break;
 		} 
 		if(select>OPT_FileDownload && select < OPT_ChangeAdminCode) {
@@ -115,4 +158,20 @@ bool AdminModeFunction::switchingCase(int selected, int case)
 {
 	if(select == case) return 1;
 	else return 0;
+}
+
+void AdminModeFunction::FileUploadMode() : user_mode 
+{
+	user_mode.FileUpload();
+}
+
+void AdminModeFunction::FileDeleteMode() : user_mode 
+{
+	user_mode.FileDelete();
+}
+
+void AdminModeFunction::FileDeleteMode() : user_mode 
+{
+	user_mode.ShowUserInfo();
+	user_mode.FileDownload();
 }

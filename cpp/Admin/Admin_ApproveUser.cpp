@@ -9,8 +9,21 @@
 							  "userinfo"
 */
 
+#pragma once
 #include "Admin_ApproveUser.h"
 #include "UserInfo.h"
+
+class Admin_ApproveUser
+{
+public:
+	void reciveUserDate();
+	void showUpUserList(map<String, bool> un_auths);
+
+	map changeTrue(map<String, bool> un_auths, String user_name);
+	map throwTheChangedDate(un_auths);
+	void initApproveUser(map<String, bool> un_auths);
+};
+
 
 void reciveUserDate()
 {
