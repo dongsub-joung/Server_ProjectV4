@@ -2,10 +2,30 @@
 *@brief			FileInfo 
 *@details		Accessing struct `FileInfo` and Writing, Reading, Deleting data
 *@author		Joung Dong Sub
-*@version		0.0.3
+*@version		0.0.4
 */
 
-#include "FileInfo.h"
+#pragma once
+
+#include "FileInfo.cpp"
+#include <map>
+#include <string>
+
+struct FileInfo
+{
+public:
+	void ShowFileList();							
+	void CheckDownloadFile(string title);			
+	void UploadFile(string title, double volume);	
+	void DeleteFile(string title);					
+	void SumFileVolume();							
+
+	double m_sum_files;								
+
+private:
+	map<string, double> m_fileID;					
+};
+
 
 // Sum the map<value>
 void FileInfo::SumFileVolume()

@@ -2,10 +2,27 @@
 *@brief			Common: File Functions(Read, Write, Delete)
 *@details		Input data and Save in struct `FileInfo`
 *@author		Joung Dong Sub
-*@version		0.0.3
+*@version		0.0.4
 */
 
-#include "FileClass.h"
+#pragma once
+
+#include "FileClass.cpp"
+#include "FileInfo.cpp"
+#include "ServerCapacity.cpp"
+
+// About the Runable "File System"
+class File
+{
+public:
+	~File() {};
+	FileInfo* info = new FileInfo();
+	
+	void UploadFile(double capacity);
+	void DownroadFile();
+	void DeleteFile();
+};
+
 
 File::~File()
 {
