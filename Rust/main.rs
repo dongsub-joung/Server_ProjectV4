@@ -24,13 +24,21 @@ fn main() {
 
     // Start Logic Flow
     loop{
-        loop{ // Scroll up List
-            let i= 0;
-            println(USER_MODE, i++);
-            println(ADMIN_MODE, i++);
-            println(JOIN, i++);
-            println(UNJOINED_USER, i++);
-            break;
+        // Scroll up List
+        for i in 1..4
+        {
+            if i == 1 {
+                println!(USER_MODE, i);
+            } 
+            if i == 2 {
+                println!(ADMIN_MODE, i);
+            } 
+            if i == 3 {
+                println!(JOIN, i);
+            } 
+            if i == 4 {
+                println!(UNJOINED_USER, i);
+            } 
         }
 
         // Enter User's number
