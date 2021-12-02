@@ -1,23 +1,24 @@
 use std::io;
 
 fn main() {
+    let pangram: &'static str = "the quick brown fox jumps over the lazy dog";
     // Common
-    let UPLOAD= String::new("Up");
-    let DOWNLOAD= String::new("Down";);
-    let SPACE= String::new("Space Usage"); 
-    let LIST_USERS= String::new("Show Up Users");
+    const UPLOAD: &'static str      = "Up";
+    const DOWNLOAD: &'static str    = "Down";
+    const SPACE: &'static str       = "Space Usage";
+    const LIST_USERS: &'static str  = "Show Up Users";
 
     // USER_MODE
-    let USER_MODE= String::new("{}. Users Mode");
+    const USER_MODE: &'static str   = "{}. Users Mode";
     
     // ADMIN_MODE
-    let ADMIN_MODE= String::new("{}. Admin Mode");
+    let ADMIN_MODE: &'static str    = "{}. Admin Mode";
     
     // JOIN
-    let JOIN= String::new("{}. Join");
+    let JOIN: &'static str          = "{}. Join";
     
     // UNJOINED_USER
-    let UNJOINED_USER= String::new("{}. Unjoined Users");
+    let UNJOINED_USER: &'static str = "{}. Unjoined Users";
 
     // @TODO Result(Ordering) && except (enum && exception)
 
