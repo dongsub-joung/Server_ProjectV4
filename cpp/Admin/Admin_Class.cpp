@@ -40,7 +40,7 @@ class AdminClass
 public:
 	AdminInfo& admin = AdminInfo::getInstance();
 
-	bool antiS()ocial(String str);
+	bool antiSocial(String str);
 	bool CheckingCode(string inputed);
 	bool deneidSimillerCode(String pre_set, String new_set);
 	void ChangeCode();	
@@ -55,6 +55,7 @@ CapacityInfo server_capacity;
 
 bool AdminClass::antiSocial(String str)
 {
+	// Temp data set // Stub
 	String[] strs= ["admin", "0123", "123", "qwer", "default"];
 
 	for (int i = 0; i < str.length(); i++) under_str= tolower(str[i],loc);

@@ -15,7 +15,7 @@
 
 class main{
 public:
-	main(){}
+	int main(){}
 private:
 // 	pseudo code // Diretly
 // 	int[3] Main_Selection= [1,2,3];
