@@ -56,7 +56,7 @@ CapacityInfo server_capacity;
 bool AdminClass::antiSocial(String str)
 {
 	// Temp data set // Stub
-	String[] strs= ["admin", "0123", "123", "qwer", "default"];
+	String[] strs= ["admin", "0123", "789", "qwer", "default"];
 
 	for (int i = 0; i < str.length(); i++) under_str= tolower(str[i],loc);
 	for (int i = 0; i < strs.length(); i++)
