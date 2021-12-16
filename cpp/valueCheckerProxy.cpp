@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <string>
+#include <numeric>
 
 using namspace std;
 
@@ -17,9 +18,9 @@ public:
 private:
     const DEFAUTL= 5;
     // I made some Function to count "a Inputed value" in the past. 
-    const int[DEFAUTL] LEN= {4,4,3,4,7};
+    const int[] LEN= {4,4,3,4,7};
 
-    bool[DEFAUTL] m_bl_checker= {false, false, false, false, false}
+    bool[] m_bl_checker= {false, false, false, false, false}
     
     void turnOnChecker(int index);
     bool printer(String[DEFAUTL] original, String[DEFAUTL] present);
@@ -31,6 +32,7 @@ valueCheckerproxy::turnOnChecker(int index){
 
 valueCheckerproxy::printer(){
     
+    int sum= 0;
     int[10] bl_checker;
     fill_n(bl_checker, 10, 0);
     
@@ -39,13 +41,15 @@ valueCheckerproxy::printer(){
             int max_size= LEN[i];
             for(int j=1; j<max_size; j++) {
                 char a= original[i][j], b= present[i][j];
-                if(a == b) {
-                    bl_checker[j]= 1;
-                }
+                if(a == b) bl_checker[j]= 1;
+                else cout << "-\n" << endl;
             }
-            println(original[i] + "is normal")
+            sum = accumulate(bl_checker, bl_checker+DEFAUTL, sum);
+            if((sum == LEN[i]) cout << original[i] + "is normal\n" << endl;
+            else cout << i + "is lack of value\n" << endl;
         } else {
-            println("None")
+            cout << "Fully None\n" << endl;
         }
+        fill_n(bl_checker, 10, 0);
     }
 }
