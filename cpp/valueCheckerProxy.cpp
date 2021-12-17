@@ -16,18 +16,19 @@ class valueCheckerproxy {
 public:
     valueCheckerproxy(){}
 private:
+    conts TURN_ON= 1;
     const DEFAUTL= 5;
     // I made some Function to count "a Inputed value" in the past. 
     const int[] LEN= {4,4,3,4,7};
 
-    bool[] m_bl_checker= {false, false, false, false, false}
+    int[] m_bl_checker= {0, 0, 0, 0, 0};
     
     void turnOnChecker(int index);
     bool printer(String[DEFAUTL] original, String[DEFAUTL] present);
 }
 
 valueCheckerproxy::turnOnChecker(int index){
-    m_bl_checker[index]= true;
+    m_bl_checker[index]= TURN_ON;
 }
 
 valueCheckerproxy::printer(){
@@ -45,7 +46,10 @@ valueCheckerproxy::printer(){
                 else cout << "-\n" << endl;
             }
             sum = accumulate(bl_checker, bl_checker+DEFAUTL, sum);
-            if((sum == LEN[i]) cout << original[i] + "is normal\n" << endl;
+            if((sum == LEN[i]) {
+                turnOnChecker(i);
+                cout << original[i] + "is normal\n" << endl;
+            } 
             else cout << i + "is lack of value\n" << endl;
         } else {
             cout << "Fully None\n" << endl;
