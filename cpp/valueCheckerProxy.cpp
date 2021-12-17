@@ -24,15 +24,14 @@ private:
     int[] m_bl_checker= {0, 0, 0, 0, 0};
     
     void turnOnChecker(int index);
-    bool printer(String[DEFAUTL] original, String[DEFAUTL] present);
+    void printer(String[DEFAUTL] original, String[DEFAUTL] present);
 }
 
-valueCheckerproxy::turnOnChecker(int index){
+void valueCheckerproxy::turnOnChecker(int index){
     m_bl_checker[index]= TURN_ON;
 }
 
-valueCheckerproxy::printer(){
-    
+void valueCheckerproxy::printer(String[DEFAUTL] original, String[DEFAUTL] present){
     int sum= 0;
     int[10] bl_checker;
     fill_n(bl_checker, 10, 0);

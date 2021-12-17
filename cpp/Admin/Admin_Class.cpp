@@ -15,6 +15,7 @@
 #include "ServerCapacity.h"
 #include "UserInfo.h"
 
+#include "../valueCheckerProxy.cpp"
 #include "Admin_Class.h"
 #include "Admin_ApproveUser.h"
 
@@ -30,6 +31,10 @@ public:
 	}
 `	
 private:
+	const TURN_OFF= 0; // F
+	const TURN_ON= 1;  // T
+	valueCheckerproxy proxy= valueCheckerproxy::valueCheckerproxy();
+
 	AdminInfo() {}
 	AdminInfo(const AdminInfo& admin_info) {}
 	AdminInfo& operater(const AdminInfo& admin_info) {}
@@ -55,20 +60,28 @@ CapacityInfo server_capacity;
 
 bool AdminClass::antiSocial(String str)
 {
+	String[5] afters;
+
 	// Temp data set // Stub
 	String[] strs= ["admin", "0123", "789", "qwer", "default"];
+	for (int i = 0; i < str.length(); i++)
+	{
+		under_str= tolower(str[i],loc);
+		afters[i]= under_str;
+	}
 
-	for (int i = 0; i < str.length(); i++) under_str= tolower(str[i],loc);
 	for (int i = 0; i < strs.length(); i++)
 	{
+		// need equire() or other ways
 		if (under_str != strs[i]) return true;
 		else return false;
 	}
+	proxy::printer(strs, afters);
 }
 
 bool AdminClass::deneidSimillerCode(String pre_set, String new_set)
 {
-	for (int i = 0, int j= 1 int z= 2; i < (int) pre_set.size() / 3; i++, j++, z++)
+	for (int i = 0 int j= 1 int z= 2; i < (int) pre_set.size() / 3; i++ j++ z++)
 	{
 		String pre_pivot= pre_set[i] + pre_set[j] + pre_set[z];
 		if (new_Set in pre_pivot) return false;
@@ -84,7 +97,9 @@ bool AdminClass::CheckingCode(string inputed)
 
 	if (inputed.size()>4)
 	{
-		if (antiSocial(inputed)) return true;
+		if (antiSocial(inputed)){
+			return true;
+		}
 		else return false;
 	}
 	else if (deneidSimillerCode(default_code, inputed)) return false;
