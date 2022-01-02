@@ -1,23 +1,24 @@
-pub fn tp(n: vec<u8>) -> vec<u8>{
-// or heap Box<vec>
-    let c= n.clone();
-    c.push(4);
-    c.push(5);
-    
-    c
+// fn tp(n: &mut Vec<u32>) -> Vec<u32>{
+//     n.push(4);
+//     n.push(5);
+
+//     n
+// }
+
+fn dd(b: Vec<T>){
+    for i in b{
+        println!("{}", i);
+    }
 }
 
 fn main() {
-    let a= vec![1,2,3];
-    let mut b: Vec<u8>;
+    let mut a= vec![1,2,3];
+    // let mut b: Vec<u32>;
     
-    b= tp(a);
-
-    for i in b.iter(){
-        println!("{}", i);
-    }
-
+    // b= tp(&a);
+    dd(a);
 }
+
 // let mut files= Box::new(vec!["asd","abc"]);
 // // let files= vec!["asd","abc"];
 
