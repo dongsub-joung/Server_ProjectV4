@@ -1,5 +1,5 @@
 [package]
-name = "CLI_APP"
+name = "rustlang"
 version = "0.1.0"
 edition = "2021"
 
