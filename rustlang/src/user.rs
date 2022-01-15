@@ -2,11 +2,11 @@ use std::collections::HashMap;
 
 
 pub struct User{
-    id: String,
-    pw: String,
-    pass: i8,
-    admin: i8,
-    node: u128,
+    pub id: String,
+    pub pw: String,
+    pub pass: i8,
+    pub admin: i8,
+    pub node: u128,
 }
 
 impl User {
@@ -24,13 +24,13 @@ impl User {
 }
 
 pub struct DB{
-    users: HashMap<u128, User>,
+    pub users: HashMap<String, User>,
 }
 
 impl DB {
     pub fn new(user: User)-> DB{
         let mut user_db= HashMap::new();
-        user_db.insert(user.node, user);
+        user_db.insert(user.id, user);
 
         DB{ users: user_db }
     }
